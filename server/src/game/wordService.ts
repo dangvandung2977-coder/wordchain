@@ -81,7 +81,7 @@ export function submitWord(input: {
 
   const points = word.length;
 
-  if (player.score + points < room.targetScore) {
+  if (room.mode === "themed" || player.score + points < room.targetScore) {
     const suffix = word.slice(-room.chainLength);
     let hasValidContinuation = false;
     let nextMinLen = room.minWordLength;
@@ -123,7 +123,7 @@ export function submitWord(input: {
 
   room.history.push(entry);
 
-  if (player.score >= room.targetScore) {
+  if (room.mode !== "themed" && player.score >= room.targetScore) {
     room.status = "finished";
     room.winnerId = player.id;
     room.currentTurnPlayerId = null;

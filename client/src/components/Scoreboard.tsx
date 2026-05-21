@@ -20,7 +20,11 @@ export function Scoreboard({
       <section className="panel-card progress-card">
         <div className="progress-header">
           <Trophy size={18} color="var(--warning)" />
-          <h3>First to <span style={{ color: "var(--accent-cyan)" }}>{room.targetScore}</span> pts wins!</h3>
+          {room.mode === "themed" ? (
+            <h3>Survival Mode <span style={{ color: "var(--accent-cyan)", fontSize: "0.85em" }}>(Last player standing wins)</span></h3>
+          ) : (
+            <h3>First to <span style={{ color: "var(--accent-cyan)" }}>{room.targetScore}</span> pts wins!</h3>
+          )}
         </div>
         <div className="progress-grid">
           {sortedPlayers.map((player, index) => {
@@ -58,7 +62,7 @@ export function Scoreboard({
                     </span>
                   )}
                 </div>
-                <div className="prog-bar-bg">
+                <div className="prog-bar-bg" style={{ visibility: room.mode === "themed" ? "hidden" : "visible" }}>
                   <div
                     className="prog-bar-fill"
                     style={{
@@ -72,7 +76,7 @@ export function Scoreboard({
                   />
                 </div>
                 <div className="prog-score">
-                  {player.score} <span>/ {room.targetScore}</span>
+                  {player.score} {room.mode === "themed" ? <span>pts</span> : <span>/ {room.targetScore}</span>}
                 </div>
               </div>
             );

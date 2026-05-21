@@ -456,14 +456,16 @@ export function App() {
                             </div>
                           </div>
 
-                          <div className="setting-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid rgba(255, 255, 255, 0.05)', paddingBottom: '0.6rem' }}>
-                            <label style={{ fontSize: '0.85rem', color: 'var(--text-dim)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}><Trophy size={14} /> Target Score</label>
-                            <div className="setting-stepper">
-                              <button type="button" onClick={() => setTargetScore(v => Math.max(20, v - 20))}>−</button>
-                              <span>{targetScore} pts</span>
-                              <button type="button" onClick={() => setTargetScore(v => Math.min(500, v + 20))}>+</button>
+                          {mode !== "themed" && (
+                            <div className="setting-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid rgba(255, 255, 255, 0.05)', paddingBottom: '0.6rem' }}>
+                              <label style={{ fontSize: '0.85rem', color: 'var(--text-dim)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}><Trophy size={14} /> Target Score</label>
+                              <div className="setting-stepper">
+                                <button type="button" onClick={() => setTargetScore(v => Math.max(20, v - 20))}>−</button>
+                                <span>{targetScore} pts</span>
+                                <button type="button" onClick={() => setTargetScore(v => Math.min(500, v + 20))}>+</button>
+                              </div>
                             </div>
-                          </div>
+                          )}
 
                           {mode === "bomb" && (
                             <div className="setting-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid rgba(255, 255, 255, 0.05)', paddingBottom: '0.6rem' }}>
@@ -678,7 +680,7 @@ export function App() {
               <div className="help-rule"><span className="help-num">2</span><span>Each <strong>character = 1 point</strong>. Longer words = more points!</span></div>
               <div className="help-rule"><span className="help-num">3</span><span><strong>No repeating</strong> words allowed in the same match.</span></div>
               <div className="help-rule"><span className="help-num">4</span><span>You have <strong>{room?.turnDuration ?? 20} seconds</strong> per turn. Don't run out!</span></div>
-              <div className="help-rule"><span className="help-num">5</span><span>First player to reach <strong>{room?.targetScore ?? 100} points</strong> wins the game!</span></div>
+              <div className="help-rule"><span className="help-num">5</span><span>{room?.mode === "themed" ? <strong>Last player standing wins!</strong> : <>First player to reach <strong>{room?.targetScore ?? 100} points</strong> wins the game!</>}</span></div>
               
               <div style={{ margin: '1rem 0 0.5rem 0', fontSize: '0.9rem', fontWeight: 800, color: 'var(--accent-purple)', textTransform: 'uppercase', letterSpacing: '0.05em', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '0.4rem' }}>Game Modes</div>
               <div className="help-rule"><span className="help-num"><Zap size={14} /></span><span><strong>Classic:</strong> Standard word chain rules.</span></div>

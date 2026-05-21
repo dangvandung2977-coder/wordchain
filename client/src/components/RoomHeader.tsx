@@ -89,13 +89,25 @@ export function RoomHeader({ room }: { room: PublicRoomState }) {
       {/* Win Goal */}
       <div className="stats-card win-goal-card">
         <span className="label">Win Goal</span>
-        <div className="win-goal-display" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '0.25rem' }}>
-          <Trophy size={18} color="var(--warning)" fill="var(--warning)" style={{ filter: 'drop-shadow(0 0 5px rgba(255, 204, 0, 0.4))' }} />
-          <span style={{ fontSize: '1.25rem', fontWeight: 900, color: 'white' }}>
-            {room.targetScore} <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-dim)' }}>pts</span>
-          </span>
-        </div>
-        <div style={{ fontSize: '0.7rem', color: 'var(--text-dim)', marginTop: '0.15rem' }}>First player to reach wins!</div>
+        {room.mode === "themed" ? (
+          <>
+            <div className="win-goal-display" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '0.25rem' }}>
+              <ShieldBan size={18} color="var(--danger)" style={{ filter: 'drop-shadow(0 0 5px rgba(220, 53, 69, 0.4))' }} />
+              <span style={{ fontSize: '1.25rem', fontWeight: 900, color: 'white' }}>Survival</span>
+            </div>
+            <div style={{ fontSize: '0.7rem', color: 'var(--text-dim)', marginTop: '0.15rem' }}>Last standing wins!</div>
+          </>
+        ) : (
+          <>
+            <div className="win-goal-display" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '0.25rem' }}>
+              <Trophy size={18} color="var(--warning)" fill="var(--warning)" style={{ filter: 'drop-shadow(0 0 5px rgba(255, 204, 0, 0.4))' }} />
+              <span style={{ fontSize: '1.25rem', fontWeight: 900, color: 'white' }}>
+                {room.targetScore} <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-dim)' }}>pts</span>
+              </span>
+            </div>
+            <div style={{ fontSize: '0.7rem', color: 'var(--text-dim)', marginTop: '0.15rem' }}>First player to reach wins!</div>
+          </>
+        )}
       </div>
 
       {/* Timer */}

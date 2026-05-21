@@ -229,14 +229,16 @@ export function TurnPanel({
                     </div>
                   </div>
 
-                  <div className="setting-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid rgba(255, 255, 255, 0.05)', paddingBottom: '0.6rem' }}>
-                    <label style={{ fontSize: '0.85rem', color: 'var(--text-dim)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}><Trophy size={14} /> Target Score</label>
-                    <div className="setting-stepper">
-                      <button onClick={() => { const v = Math.max(20, localScore - 20); setLocalScore(v); onUpdateSettings?.({ targetScore: v }); }}>−</button>
-                      <span>{localScore} pts</span>
-                      <button onClick={() => { const v = Math.min(500, localScore + 20); setLocalScore(v); onUpdateSettings?.({ targetScore: v }); }}>+</button>
+                  {room.mode !== "themed" && (
+                    <div className="setting-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid rgba(255, 255, 255, 0.05)', paddingBottom: '0.6rem' }}>
+                      <label style={{ fontSize: '0.85rem', color: 'var(--text-dim)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}><Trophy size={14} /> Target Score</label>
+                      <div className="setting-stepper">
+                        <button onClick={() => { const v = Math.max(20, localScore - 20); setLocalScore(v); onUpdateSettings?.({ targetScore: v }); }}>−</button>
+                        <span>{localScore} pts</span>
+                        <button onClick={() => { const v = Math.min(500, localScore + 20); setLocalScore(v); onUpdateSettings?.({ targetScore: v }); }}>+</button>
+                      </div>
                     </div>
-                  </div>
+                  )}
 
                   {room.mode === "bomb" && (
                     <div className="setting-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid rgba(255, 255, 255, 0.05)', paddingBottom: '0.6rem' }}>
@@ -268,7 +270,11 @@ export function TurnPanel({
         <div className="lobby-info-row">
           <span><Clock size={14} /> {room.turnDuration}s per turn</span>
           <span><Users size={14} /> Max 8 players</span>
-          <span><Trophy size={14} /> {room.targetScore} pts to win</span>
+          {room.mode === "themed" ? (
+            <span><Trophy size={14} /> Survival Mode</span>
+          ) : (
+            <span><Trophy size={14} /> {room.targetScore} pts to win</span>
+          )}
         </div>
       </section>
     );

@@ -35,7 +35,7 @@ export function RulesPanel({ room }: { room: PublicRoomState | null }) {
         )}
         <div className="rule-item">
           <RefreshCcw size={16} style={{ color: 'var(--warning)' }} />
-          <span>First to <strong>{targetScore} points</strong> wins the game!</span>
+          <span>{isThemed ? <strong>Last player standing wins!</strong> : <>First to <strong>{targetScore} points</strong> wins the game!</>}</span>
         </div>
       </div>
     </section>
