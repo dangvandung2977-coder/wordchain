@@ -9,6 +9,8 @@ export interface PlayerState {
   score: number;
   connected: boolean;
   isHost: boolean;
+  lives?: number;
+  eliminated?: boolean;
 }
 
 export interface WordEntry {
