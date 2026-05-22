@@ -25,7 +25,7 @@ export function RulesPanel({ room }: { room: PublicRoomState | null }) {
         {isThemed ? (
           <div className="rule-item">
             <Link size={16} style={{ color: 'var(--accent-cyan)' }} />
-            <span>Must be a valid word from the theme: <strong>{themeName}</strong>. No letter chaining required!</span>
+            <span>Must be a valid word from the theme: <strong>{themeName}</strong> (No letter chaining required). <strong>No words ending with "s" allowed!</strong></span>
           </div>
         ) : (
           <div className="rule-item">

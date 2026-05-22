@@ -320,13 +320,13 @@ export function TurnPanel({
       <div className={`turn-banner ${isMyTurn ? "my-turn-banner" : ""}`}>
         {isMyTurn ? (
           room.mode === "themed" ? (
-            <span>⚡ Your Turn! Type a word belonging to theme <strong>{room.theme ? room.theme.charAt(0).toUpperCase() + room.theme.slice(1) : ""}</strong></span>
+            <span>⚡ Your Turn! Type a word in theme <strong>{room.theme ? room.theme.charAt(0).toUpperCase() + room.theme.slice(1) : ""}</strong> (cannot end with "s")</span>
           ) : (
             <span>⚡ Your Turn! Type a word starting with <strong>{requiredLetter ?? "any letter"}</strong></span>
           )
         ) : (
           room.mode === "themed" ? (
-            <span>⏳ <strong>{currentPlayer?.name ?? "..."}</strong>'s turn (Theme: <strong>{room.theme ? room.theme.charAt(0).toUpperCase() + room.theme.slice(1) : ""}</strong>)</span>
+            <span>⏳ <strong>{currentPlayer?.name ?? "..."}</strong>'s turn (Theme: <strong>{room.theme ? room.theme.charAt(0).toUpperCase() + room.theme.slice(1) : ""}</strong> - no ending "s")</span>
           ) : (
             <span>
               ⏳ <strong>{currentPlayer?.name ?? "..."}</strong>'s turn

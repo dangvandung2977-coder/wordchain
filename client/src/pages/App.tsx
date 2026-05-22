@@ -595,7 +595,7 @@ export function App() {
                 <div className="help-rule"><span className="help-num" style={{ background: 'rgba(255,204,0,0.15)', borderColor: 'var(--warning)', color: 'var(--warning)' }}><Link size={14} /></span><span><strong>Hard Chain:</strong> Words must connect using the last <strong>2 letters</strong>.</span></div>
                 <div className="help-rule"><span className="help-num" style={{ background: 'rgba(255,77,77,0.15)', borderColor: 'var(--danger)', color: 'var(--danger)' }}><ShieldBan size={14} /></span><span><strong>Ban Letter:</strong> A specific letter is completely forbidden from all words.</span></div>
                 <div className="help-rule"><span className="help-num"><AlertCircle size={14} /></span><span><strong>Escalating:</strong> Each word you play must be strictly <strong>longer</strong> than your previous word!</span></div>
-                <div className="help-rule"><span className="help-num" style={{ background: 'rgba(255,204,0,0.15)', borderColor: 'var(--warning)', color: 'var(--warning)' }}><Star size={14} /></span><span><strong>Themed (Survival):</strong> Mỗi người có 3 mạng. Hết thời gian bị trừ 1 mạng, hết 3 mạng bị loại. Ai sống sót cuối cùng sẽ thắng!</span></div>
+                <div className="help-rule"><span className="help-num" style={{ background: 'rgba(255,204,0,0.15)', borderColor: 'var(--warning)', color: 'var(--warning)' }}><Star size={14} /></span><span><strong>Themed (Survival):</strong> Mỗi người có 3 mạng. Hết thời gian bị trừ 1 mạng, hết 3 mạng bị loại. Không được dùng từ kết thúc bằng chữ "s". Ai sống sót cuối cùng sẽ thắng!</span></div>
               </div>
             </div>
           </div>
@@ -688,7 +688,7 @@ export function App() {
               <div className="help-rule"><span className="help-num" style={{ background: 'rgba(255,204,0,0.15)', borderColor: 'var(--warning)', color: 'var(--warning)' }}><Link size={14} /></span><span><strong>Hard Chain:</strong> Words must connect using the last <strong>2 letters</strong>.</span></div>
               <div className="help-rule"><span className="help-num" style={{ background: 'rgba(255,77,77,0.15)', borderColor: 'var(--danger)', color: 'var(--danger)' }}><ShieldBan size={14} /></span><span><strong>Ban Letter:</strong> A specific letter is completely forbidden from all words.</span></div>
               <div className="help-rule"><span className="help-num"><AlertCircle size={14} /></span><span><strong>Escalating:</strong> Each word you play must be strictly <strong>longer</strong> than your previous word!</span></div>
-              <div className="help-rule"><span className="help-num" style={{ background: 'rgba(255,204,0,0.15)', borderColor: 'var(--warning)', color: 'var(--warning)' }}><Star size={14} /></span><span><strong>Themed (Survival):</strong> Mỗi người có 3 mạng. Hết thời gian bị trừ 1 mạng, hết 3 mạng bị loại. Ai sống sót cuối cùng sẽ thắng!</span></div>
+              <div className="help-rule"><span className="help-num" style={{ background: 'rgba(255,204,0,0.15)', borderColor: 'var(--warning)', color: 'var(--warning)' }}><Star size={14} /></span><span><strong>Themed (Survival):</strong> Mỗi người có 3 mạng. Hết thời gian bị trừ 1 mạng, hết 3 mạng bị loại. Không được dùng từ kết thúc bằng chữ "s". Ai sống sót cuối cùng sẽ thắng!</span></div>
             </div>
           </div>
         </div>

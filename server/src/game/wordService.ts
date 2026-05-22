@@ -45,6 +45,10 @@ export function submitWord(input: {
     }
   }
 
+  if (room.mode === "themed" && word.endsWith("s")) {
+    return { ok: false, error: "Chế độ chơi chủ đề không cho phép dùng từ kết thúc bằng chữ 's'." };
+  }
+
   if (room.usedWords.has(word)) {
     return { ok: false, error: "Từ này đã được dùng rồi." };
   }
@@ -93,6 +97,7 @@ export function submitWord(input: {
       const matchChain = room.mode === "themed" ? true : dictWord.startsWith(suffix);
       if (matchChain && dictWord !== word && !room.usedWords.has(dictWord)) {
         if (room.bannedLetter && dictWord.includes(room.bannedLetter)) continue;
+        if (room.mode === "themed" && dictWord.endsWith("s")) continue;
         if (dictWord.length < nextMinLen) continue;
         if (dictWord.length > room.maxWordLength) continue;
         
